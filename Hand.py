@@ -2,7 +2,6 @@
 
 from Deck import Deck as Deck
 from Card import Card as Card
-from Board import Board as Board
 
 class Hand:
     def __init__(self, deck, chips): # Creates the starting hand
@@ -13,16 +12,18 @@ class Hand:
         self.currentBet = 0
 
     def bet(self): # Make a bet
-        while:
+
+        bet = False
+        while bet == False:
             tempBet = int(input("How much do you want to bet? "))
             if tempBet < self.chips:
                 self.chips = self.chips - tempBet
-                break
+                bet = True
             else:
                 print("Too high bet.")
                 pass
 
-            return tempBet
+        return tempBet
 
     def fold(self): # Pass the turn
         print("Player folded.")
